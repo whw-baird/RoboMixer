@@ -1,1 +1,86 @@
-<h1>This is a Sidecar</h1>
+<div>
+  <div>
+    <h1>
+      The <%= @the_cocktail.name %>
+    </h1>
+
+    <div>
+      <div>
+        <a href="/cocktails">
+          All cocktails
+        </a>
+      </div>
+
+    <ul>
+      <li>
+        1.5 oz <%= @the_cocktail.liquor.name %>
+      </li>
+      <li>
+        3/4 oz <%= @the_cocktail.citrus.name %>
+      </li>
+      <li>
+        3/4 oz <%= @the_cocktail.modifier.name %>
+      </li>
+    </ul>
+    <h3>
+      Technique
+    </h3>
+
+    <p>
+      In a cocktail shaker, add <%= @the_cocktail.liquor.name.downcase %>, <%= @the_cocktail.citrus.name.downcase %>, and <%= @the_cocktail.modifier.name.downcase %> over ice. Close and shake for 20 seconds, then strain into a coup glass. <% if @the_cocktail.id == 20 %>The glass may be rimmed with salt or sugar to taste, and garnished with a lime wedge.<% else %>Garnish with orange twist.<% end %>
+    </p>
+<!--
+    <dl>
+      <dt>
+        Format
+      </dt>
+      <dd>
+        <%= @the_cocktail.format.name %>
+      </dd>
+
+      <dt>
+        Liquor
+      </dt>
+      <dd>
+        <%= @the_cocktail.liquor.name %>
+      </dd>
+
+      <dt>
+        Sweetener
+      </dt>
+      <dd>
+        <%= @the_cocktail.sweetener_id %>
+      </dd>
+
+      <dt>
+        Bitters
+      </dt>
+      <dd>
+        <%= @the_cocktail.bitters_id %>
+      </dd>
+
+      <dt>
+        Citrus
+      </dt>
+      <dd>
+        <%= @the_cocktail.citrus_id %>
+      </dd>
+
+      <dt>
+        Soda
+      </dt>
+      <dd>
+        <%= @the_cocktail.soda_id %>
+      </dd>
+
+      <dt>
+        Modifier
+      </dt>
+      <dd>
+        <%= @the_cocktail.modifier_id %>
+      </dd>
+
+<hr>
+-->
+
+<hr>
