@@ -1,1 +1,28 @@
-<h1>This is a Sour</h1>
+<h1>
+  The <%= @the_cocktail.name %>
+</h1>
+
+<div>
+  <a href="/cocktails">
+    All cocktails
+  </a>
+</div>
+
+<ul>
+  <li>
+    1.5 oz <%= @the_cocktail.liquor.name %>
+  </li>
+  <li>
+    3/4 oz <%= @the_cocktail.sweetener.name %>
+  </li>
+  <li>
+    3/4 oz <%= @the_cocktail.citrus.name %>
+  </li>
+</ul>
+<h3>
+  Technique
+</h3>
+
+<p>
+  In a cocktail shaker, add <%= @the_cocktail.liquor.name.downcase %>, <%= @the_cocktail.sweetener.name.downcase %>, and <%= @the_cocktail.citrus.name.downcase %> over ice. Close and shake for 20 seconds, then strain into a chilled rocks or coupe glass. 
+</p>
