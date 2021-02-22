@@ -5,4 +5,7 @@ class RobomixController < ApplicationController
     render({ :template => "Robomix/landing.html.erb" })
   end
 
+  def generate
+  end
+
 end
