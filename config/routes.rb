@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get("/", { :controller => "robomix", :action => "home" })
 
   # Routes for the Cocktail resource:
 
