@@ -1,0 +1,191 @@
+<div>
+  <div>
+    <h1>
+      Saved cocktail #<%= @the_saved_cocktail.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/saved_cocktails">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_saved_cocktail/<%= @the_saved_cocktail.id %>">
+          Delete saved cocktail
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_saved_cocktail.user_id %>
+      </dd>
+
+      <dt>
+        Format
+      </dt>
+      <dd>
+        <%= @the_saved_cocktail.format_id %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_saved_cocktail.name %>
+      </dd>
+
+      <dt>
+        Liquor
+      </dt>
+      <dd>
+        <%= @the_saved_cocktail.liquor_id %>
+      </dd>
+
+      <dt>
+        Sweetener
+      </dt>
+      <dd>
+        <%= @the_saved_cocktail.sweetener_id %>
+      </dd>
+
+      <dt>
+        Bitters
+      </dt>
+      <dd>
+        <%= @the_saved_cocktail.bitters_id %>
+      </dd>
+
+      <dt>
+        Citrus
+      </dt>
+      <dd>
+        <%= @the_saved_cocktail.citrus_id %>
+      </dd>
+
+      <dt>
+        Soda
+      </dt>
+      <dd>
+        <%= @the_saved_cocktail.soda_id %>
+      </dd>
+
+      <dt>
+        Modifier
+      </dt>
+      <dd>
+        <%= @the_saved_cocktail.modifier_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_saved_cocktail.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_saved_cocktail.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit saved cocktail
+    </h2>
+
+    <form action="/modify_saved_cocktail/<%= @the_saved_cocktail.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_saved_cocktail.user_id %>">
+      </div>
+
+      <div>
+        <label for="format_id_box">
+          Format
+        </label>
+
+        <input type="text" id="format_id_box" name="query_format_id" value="<%= @the_saved_cocktail.format_id %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_saved_cocktail.name %>">
+      </div>
+
+      <div>
+        <label for="liquor_id_box">
+          Liquor
+        </label>
+
+        <input type="text" id="liquor_id_box" name="query_liquor_id" value="<%= @the_saved_cocktail.liquor_id %>">
+      </div>
+
+      <div>
+        <label for="sweetener_id_box">
+          Sweetener
+        </label>
+
+        <input type="text" id="sweetener_id_box" name="query_sweetener_id" value="<%= @the_saved_cocktail.sweetener_id %>">
+      </div>
+
+      <div>
+        <label for="bitters_id_box">
+          Bitters
+        </label>
+
+        <input type="text" id="bitters_id_box" name="query_bitters_id" value="<%= @the_saved_cocktail.bitters_id %>">
+      </div>
+
+      <div>
+        <label for="citrus_id_box">
+          Citrus
+        </label>
+
+        <input type="text" id="citrus_id_box" name="query_citrus_id" value="<%= @the_saved_cocktail.citrus_id %>">
+      </div>
+
+      <div>
+        <label for="soda_id_box">
+          Soda
+        </label>
+
+        <input type="text" id="soda_id_box" name="query_soda_id" value="<%= @the_saved_cocktail.soda_id %>">
+      </div>
+
+      <div>
+        <label for="modifier_id_box">
+          Modifier
+        </label>
+
+        <input type="text" id="modifier_id_box" name="query_modifier_id" value="<%= @the_saved_cocktail.modifier_id %>">
+      </div>
+
+      <button>
+        Update saved cocktail
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

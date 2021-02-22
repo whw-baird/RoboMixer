@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Modifier #<%= @the_modifier.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/modifiers">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_modifier/<%= @the_modifier.id %>">
+          Delete modifier
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_modifier.name %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_modifier.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_modifier.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit modifier
+    </h2>
+
+    <form action="/modify_modifier/<%= @the_modifier.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_modifier.name %>">
+      </div>
+
+      <button>
+        Update modifier
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

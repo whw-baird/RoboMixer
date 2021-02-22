@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all liquors
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new liquor
+    </h2>
+
+    <form action="/insert_liquor" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <button>
+        Create liquor
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_liquors.each do |a_liquor| %>
+      <tr>
+        <td>
+          <%= a_liquor.id %>
+        </td>
+
+        <td>
+          <%= a_liquor.name %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_liquor.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_liquor.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/liquors/<%= a_liquor.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

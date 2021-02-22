@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Soda #<%= @the_soda.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/sodas">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_soda/<%= @the_soda.id %>">
+          Delete soda
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_soda.name %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_soda.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_soda.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit soda
+    </h2>
+
+    <form action="/modify_soda/<%= @the_soda.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_soda.name %>">
+      </div>
+
+      <button>
+        Update soda
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
