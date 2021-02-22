@@ -1,43 +1,29 @@
 <div>
   <div>
     <h1>
-      Cocktail #<%= @the_cocktail.id %> details
+      <%= @the_cocktail.name %>
     </h1>
 
     <div>
       <div>
         <a href="/cocktails">
-          Go back
+          All cocktails
         </a>
       </div>
-
-      <div>
-        <a href="/delete_cocktail/<%= @the_cocktail.id %>">
-          Delete cocktail
-        </a>
-      </div>
-    </div>
 
     <dl>
       <dt>
         Format
       </dt>
       <dd>
-        <%= @the_cocktail.format_id %>
-      </dd>
-
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_cocktail.name %>
+        <%= @the_cocktail.format.name %>
       </dd>
 
       <dt>
         Liquor
       </dt>
       <dd>
-        <%= @the_cocktail.liquor_id %>
+        <%= @the_cocktail.liquor.name %>
       </dd>
 
       <dt>
@@ -75,102 +61,8 @@
         <%= @the_cocktail.modifier_id %>
       </dd>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_cocktail.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_cocktail.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
-
 <hr>
 
 
-<div>
-  <div>
-    <h2>
-      Edit cocktail
-    </h2>
-
-    <form action="/modify_cocktail/<%= @the_cocktail.id %>"  method="post" >
-      <div>
-        <label for="format_id_box">
-          Format
-        </label>
-
-        <input type="text" id="format_id_box" name="query_format_id" value="<%= @the_cocktail.format_id %>">
-      </div>
-
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
-      </div>
-
-      <div>
-        <label for="liquor_id_box">
-          Liquor
-        </label>
-
-        <input type="text" id="liquor_id_box" name="query_liquor_id" value="<%= @the_cocktail.liquor_id %>">
-      </div>
-
-      <div>
-        <label for="sweetener_id_box">
-          Sweetener
-        </label>
-
-        <input type="text" id="sweetener_id_box" name="query_sweetener_id" value="<%= @the_cocktail.sweetener_id %>">
-      </div>
-
-      <div>
-        <label for="bitters_id_box">
-          Bitters
-        </label>
-
-        <input type="text" id="bitters_id_box" name="query_bitters_id" value="<%= @the_cocktail.bitters_id %>">
-      </div>
-
-      <div>
-        <label for="citrus_id_box">
-          Citrus
-        </label>
-
-        <input type="text" id="citrus_id_box" name="query_citrus_id" value="<%= @the_cocktail.citrus_id %>">
-      </div>
-
-      <div>
-        <label for="soda_id_box">
-          Soda
-        </label>
-
-        <input type="text" id="soda_id_box" name="query_soda_id" value="<%= @the_cocktail.soda_id %>">
-      </div>
-
-      <div>
-        <label for="modifier_id_box">
-          Modifier
-        </label>
-
-        <input type="text" id="modifier_id_box" name="query_modifier_id" value="<%= @the_cocktail.modifier_id %>">
-      </div>
-
-      <button>
-        Update cocktail
-      </button>
-    </form>
-  </div>
-</div>
 
 <hr>

@@ -91,10 +91,6 @@
     <table border="1">
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
           Format
         </th>
 
@@ -127,25 +123,13 @@
         </th>
 
         <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
         </th>
       </tr>
 
       <% @list_of_cocktails.each do |a_cocktail| %>
       <tr>
         <td>
-          <%= a_cocktail.id %>
-        </td>
-
-        <td>
-          <%= a_cocktail.format_id %>
+          <%= a_cocktail.format.name %>
         </td>
 
         <td>
@@ -153,7 +137,7 @@
         </td>
 
         <td>
-          <%= a_cocktail.liquor_id %>
+          <%= a_cocktail.liquor.name %>
         </td>
 
         <td>
@@ -174,13 +158,6 @@
 
         <td>
           <%= a_cocktail.modifier_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_cocktail.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_cocktail.updated_at) %> ago
         </td>
 
         <td>

@@ -2,7 +2,7 @@ class CocktailsController < ApplicationController
   def index
     matching_cocktails = Cocktail.all
 
-    @list_of_cocktails = matching_cocktails.order({ :created_at => :desc })
+    @list_of_cocktails = matching_cocktails.order({ :name => :asc })
 
     render({ :template => "cocktails/index.html.erb" })
   end
@@ -10,11 +10,23 @@ class CocktailsController < ApplicationController
   def show
     the_id = params.fetch("path_id")
 
-    matching_cocktails = Cocktail.where({ :id => the_id })
+    @the_cocktail = Cocktail.where({ :id => the_id }).at(0)
+    format_redirect = @the_cocktail.format_id
+    
+    if format_redirect == 1
+      render({ :template => "cocktails/three_part.html.erb" })
+    elsif format_redirect == 2
+      render({ :template => "cocktails/fizz.html.erb" })
+    elsif format_redirect == 3
+      render({ :template => "cocktails/martini.html.erb" })
+    elsif format_redirect == 4
+      render({ :template => "cocktails/old_fashioned.html.erb" })
+    elsif format_redirect == 5
+      render({ :template => "cocktails/sidecar.html.erb" })
+    else
+      render({ :template => "cocktails/sour.html.erb" })
+    end
 
-    @the_cocktail = matching_cocktails.at(0)
-
-    render({ :template => "cocktails/show.html.erb" })
   end
 
   def create
