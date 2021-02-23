@@ -1,0 +1,25 @@
+<h1>Your RoboMix cocktail:</h1>
+<p>
+  A <%= @robo_format.name %>-format cocktail
+</p>
+With:
+<ul>
+  <li>
+    2 oz <%= @robo_liquor.name %>
+  </li>
+
+  <li>
+    1 oz <%= @robo_bitters.name %>
+  </li>
+
+  <li>
+    1 oz <%= @robo_modifier.name %>
+  </li>
+</ul>
+
+<h3>
+  Suggested technique
+</h3>
+<p>
+  In a mixing glass, add <%= @robo_liquor.name.downcase %>, <%= @robo_bitters.name.downcase %>, and <%= @robo_modifier.name.downcase %> over ice. Stir for 20 seconds or to your preferred coldness, then strain into a rocks glass over ice. Garnish with an orange twist and/or a maraschino cherry.
+</p>

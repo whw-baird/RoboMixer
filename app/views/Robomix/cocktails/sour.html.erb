@@ -1,0 +1,25 @@
+<h1>Your RoboMix cocktail:</h1>
+<p>
+  A <%= @robo_format.name %>-format cocktail
+</p>
+With:
+<ul>
+  <li>
+    1.5 oz <%= @robo_liquor.name %>
+  </li>
+
+  <li>
+    3/4 oz <%= @robo_sweetener.name %>
+  </li>
+
+  <li>
+    3/4 oz <%= @robo_citrus.name %>
+  </li>
+</ul>
+
+<h3>
+  Suggested technique
+</h3>
+<p>
+  In a cocktail shaker, add <%= @robo_liquor.name.downcase %>, <%= @robo_sweetener.name.downcase %>, and <%= @robo_citrus.name.downcase %> over ice. Close and shake for 20 seconds, then strain into a chilled rocks or coupe glass.
+</p>

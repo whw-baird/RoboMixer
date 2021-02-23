@@ -1,0 +1,27 @@
+<h1>Your RoboMix cocktail:</h1>
+<p>
+  A <%= @robo_format.name %>-format cocktail
+</p>
+With:
+<ul>
+  <li>
+    2 oz <%= @robo_liquor.name %>
+  </li>
+
+  <li>
+    1 oz <%= @robo_citrus.name %>
+  </li>
+
+  <li>
+    <%= @robo_soda.name %>
+  </li>
+</ul>
+
+<h3>
+  Suggested technique:
+</h3>
+<p>
+  In a cocktail shaker, add <%= @robo_liquor.name.downcase %> and <%= @robo_citrus.name.downcase %> over ice. Close and shake for 20 seconds, then pour into a highball glass. Top with <%= @robo_soda.name.downcase %>. Garnish with lime wedge.
+</p>
+<form action="">
+<button>Save cocktail</button>
