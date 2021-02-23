@@ -21,4 +21,9 @@ class Liquor < ApplicationRecord
     :dependent => :destroy 
   })
 
+
+  def robot
+    
+  end
+
 end

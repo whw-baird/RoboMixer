@@ -8,9 +8,9 @@ class CocktailsController < ApplicationController
   end
 
   def show
-    the_id = params.fetch("path_id")
+    the_name = params.fetch("path_id")
 
-    @the_cocktail = Cocktail.where({ :id => the_id }).at(0)
+    @the_cocktail = Cocktail.where({ :name => the_name }).at(0)
     format_redirect = @the_cocktail.format_id
     
     if format_redirect == 1

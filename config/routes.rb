@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   get("/", { :controller => "robomix", :action => "home" })
+  get("/generator", { :controller => "robomix", :action => "generator" })
+  get("/generator/output", { :controller => "robomix", :action => "output" })
 
   # Routes for the Cocktail resource:
 
