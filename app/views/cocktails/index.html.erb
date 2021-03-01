@@ -1,11 +1,8 @@
 <div>
-  <div>
-    <h1>
-      List of all cocktails
-    </h1>
-  </div>
+  <h1>
+    List of all cocktails
+  </h1>
 </div>
-<a href="/">Home</a>
 <hr>
 <!--
 <div>
@@ -87,88 +84,82 @@
 </div>
 -->
 <div>
-  <div>
-    <table border="1">
-      <tr>
-        <th>
-          Format
-        </th>
+  <table border="1">
+    <tr>
+      <th>
+        Format
+      </th>
 
-        <th>
-          Name
-        </th>
+      <th>
+        Name
+      </th>
 
-        <th>
-          Liquor
-        </th>
+      <th>
+        Ingredients
+      </th>
 
-        <th>
-          Sweetener
-        </th>
+      <th>
+        Instruction
+      </th>
+    </tr>
 
-        <th>
-          Bitters
-        </th>
+    <% @list_of_cocktails.each do |a_cocktail| %>
+    <tr>
+      <td>
+        <%= a_cocktail.format.name %>
+      </td>
 
-        <th>
-          Citrus
-        </th>
+      <td>
+        <%= a_cocktail.name %>
+      </td>
 
-        <th>
-          Soda
-        </th>
+      <td>
+        <ul>
+          <li>
+            <%= a_cocktail.liquor.name %>
+          </li>
 
-        <th>
-          Modifier
-        </th>
+          <% if a_cocktail.sweetener != nil %>
+            <li>
+              <%= a_cocktail.sweetener.name %>
+            </li>
+          <% end %>
 
-        <th>
-        </th>
-      </tr>
+          <% if a_cocktail.bitters != nil %>
+            <li>
+              <%= a_cocktail.bitters.name %>
+            </li>
+          <% end %>
 
-      <% @list_of_cocktails.each do |a_cocktail| %>
-      <tr>
-        <td>
-          <%= a_cocktail.format.name %>
-        </td>
+          <% if a_cocktail.citrus != nil %>
+            <li>
+              <%= a_cocktail.citrus.name %>
+            </li>
+          <% end %>
 
-        <td>
-          <%= a_cocktail.name %>
-        </td>
+          <% if a_cocktail.soda != nil %>
+            <li>
+              <%= a_cocktail.soda.name %>
+            </li>
+          <% end %>
 
-        <td>
-          <%= a_cocktail.liquor.name %>
-        </td>
+          <% if a_cocktail.modifier != nil %>
+            <li>
+              <%= a_cocktail.modifier.name %>
+            </li>
+          <% end %>
 
-        <td>
-          <%= a_cocktail.sweetener_id %>
-        </td>
+        </ul>
+      </td>
 
-        <td>
-          <%= a_cocktail.bitters_id %>
-        </td>
-
-        <td>
-          <%= a_cocktail.citrus_id %>
-        </td>
-
-        <td>
-          <%= a_cocktail.soda_id %>
-        </td>
-
-        <td>
-          <%= a_cocktail.modifier_id %>
-        </td>
-
-        <td>
-          <a href="/cocktails/<%= a_cocktail.name %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
+      <td>
+        <a href="/cocktails/<%= a_cocktail.name %>">
+          Show details
+        </a>
+      </td>
+    </tr>
+    <% end %>
+  </table>
 </div>
 
 <hr>
