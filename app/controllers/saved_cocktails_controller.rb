@@ -53,15 +53,7 @@ class SavedCocktailsController < ApplicationController
     the_id = params.fetch("path_id")
     the_saved_cocktail = SavedCocktail.where({ :id => the_id }).at(0)
 
-    the_saved_cocktail.user_id = params.fetch("query_user_id")
-    the_saved_cocktail.format_id = params.fetch("query_format_id")
     the_saved_cocktail.name = params.fetch("query_name")
-    the_saved_cocktail.liquor_id = params.fetch("query_liquor_id")
-    the_saved_cocktail.sweetener_id = params.fetch("query_sweetener_id")
-    the_saved_cocktail.bitters_id = params.fetch("query_bitters_id")
-    the_saved_cocktail.citrus_id = params.fetch("query_citrus_id")
-    the_saved_cocktail.soda_id = params.fetch("query_soda_id")
-    the_saved_cocktail.modifier_id = params.fetch("query_modifier_id")
 
     if the_saved_cocktail.valid?
       the_saved_cocktail.save

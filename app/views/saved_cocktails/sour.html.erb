@@ -26,3 +26,25 @@
 <p>
   In a cocktail shaker, add <%= @the_cocktail.liquor.name.downcase %>, <%= @the_cocktail.sweetener.name.downcase %>, and <%= @the_cocktail.citrus.name.downcase %> over ice. Close and shake for 20 seconds, then strain into a chilled rocks or coupe glass. 
 </p>
+
+<div>
+  <div>
+    <h2>
+      Change cocktail name
+    </h2>
+
+    <form action="/modify_saved_cocktail/<%= @the_cocktail.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          New name:
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
+      </div>
+
+      <button>
+        Update saved cocktail
+      </button>
+    </form>
+  </div>
+</div>

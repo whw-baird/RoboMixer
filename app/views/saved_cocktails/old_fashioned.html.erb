@@ -26,3 +26,25 @@
 <p>
   In a mixing glass, add <%= @the_cocktail.liquor.name.downcase %>, <%= @the_cocktail.sweetener.name.downcase %>, and <%= @the_cocktail.bitters.name %> over ice. Stir for 20 seconds or to your preferred coldness, then strain into a rocks glass over ice. Garnish with an orange twist and/or a maraschino cherry.
 </p>
+
+<div>
+  <div>
+    <h2>
+      Change cocktail name
+    </h2>
+
+    <form action="/modify_saved_cocktail/<%= @the_cocktail.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          New name:
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
+      </div>
+
+      <button>
+        Update saved cocktail
+      </button>
+    </form>
+  </div>
+</div>

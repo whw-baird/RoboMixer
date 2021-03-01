@@ -23,3 +23,25 @@
 <p>
   In a mixing glass, add <%= @the_cocktail.liquor.name.downcase %> and <%= @the_cocktail.modifier.name.downcase %> over ice. Stir for 20 seconds or to your preferred coldness, then strain into a chilled martini glass. May be garnished with olive or by squeezing oil from lemon peel onto the finished drink.
 </p>
+
+<div>
+  <div>
+    <h2>
+      Change cocktail name
+    </h2>
+
+    <form action="/modify_saved_cocktail/<%= @the_cocktail.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          New name:
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
+      </div>
+
+      <button>
+        Update saved cocktail
+      </button>
+    </form>
+  </div>
+</div>
