@@ -23,3 +23,17 @@
 <p>
   In a mixing glass, add <%= @the_cocktail.liquor.name.downcase %> and <%= @the_cocktail.modifier.name.downcase %> over ice. Stir for 20 seconds or to your preferred coldness, then strain into a chilled martini glass. May be garnished with olive or by squeezing oil from lemon peel onto the finished drink.
 </p>
+<form action="/insert_saved_cocktail" method="post">
+  <input type="hidden" id="user_id_box" value="<%= session[:user_id] %>" name="query_user_id">
+  <input type="hidden" id="format_id_box" value="<%= @the_cocktail.format_id %>" name="query_format_id">
+  <input type="hidden" id="name_box" value="<%= @the_cocktail.name %>" name="query_name">
+  <input type="hidden" id="liquor_id_box" value="<%= @the_cocktail.liquor_id %>" name="query_liquor_id">
+  <input type="hidden" id="sweetener_id_box" value="<%= @the_cocktail.sweetener_id %>" name="query_sweetener_id">
+  <input type="hidden" id="bitters_id_box" value="<%= @the_cocktail.bitters_id %>" name="query_bitters_id">
+  <input type="hidden" id="citrus_id_box" value="<%= @the_cocktail.citrus_id %>" name="query_citrus_id">
+  <input type="hidden" id="soda_id_box" value="<%= @the_cocktail.soda_id %>" name="query_soda_id">
+  <input type="hidden" id="modifier_id_box" value="<%= @the_cocktail.modifier_id %>" name="query_modifier_id">
+  <button>
+    Save cocktail
+  </button>
+</form>

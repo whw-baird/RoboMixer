@@ -23,5 +23,17 @@ With:
 <p>
   In a cocktail shaker, add <%= @robo_liquor.name.downcase %>, <%= @robo_sweetener.name.downcase %>, and <%= @robo_citrus.name.downcase %> over ice. Close and shake for 20 seconds, then strain into a chilled rocks or coupe glass.
 </p>
-<form action="">
-<button>Save cocktail</button>
+<form action="/insert_saved_cocktail" method="post">
+  <input type="hidden" id="user_id_box" value="<%= session[:user_id] %>" name="query_user_id">
+  <input type="hidden" id="format_id_box" value="<%= @robo_format.id %>" name="query_format_id">
+  <input type="hidden" id="name_box" value="RoboMix Cocktail #<%= @robo_number %>" name="query_name">
+  <input type="hidden" id="liquor_id_box" value="<%= @robo_liquor.id %>" name="query_liquor_id">
+  <input type="hidden" id="sweetener_id_box" value="<%= @robo_sweetener.id %>" name="query_sweetener_id">
+  <input type="hidden" id="bitters_id_box" value="" name="query_bitters_id">
+  <input type="hidden" id="citrus_id_box" value="<%= @robo_citrus.id %>" name="query_citrus_id">
+  <input type="hidden" id="soda_id_box" value="" name="query_soda_id">
+  <input type="hidden" id="modifier_id_box" value="" name="query_modifier_id">
+  <button>
+    Save cocktail
+  </button>
+</form>

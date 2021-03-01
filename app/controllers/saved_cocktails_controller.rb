@@ -1,6 +1,6 @@
 class SavedCocktailsController < ApplicationController
   def index
-    matching_saved_cocktails = SavedCocktail.all
+    matching_saved_cocktails = SavedCocktail.where({ :user_id => session[:user_id] })
 
     @list_of_saved_cocktails = matching_saved_cocktails.order({ :created_at => :desc })
 

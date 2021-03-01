@@ -19,7 +19,7 @@ class RobomixController < ApplicationController
     liquor_array = [1,2,2,2,2,2,2,2,2,3,3,4,4,4,5,5,6,7,7,7,7,8,8,8,8,8,8,8,8,9,9,9,9,10,11]
     mix_liquor = liquor_array.sample
     @robo_liquor = Liquor.where({ :id => mix_liquor }).at(0)
-
+    @robo_number = rand((1..2047)).to_s
     if mix_format == 1
       # 3-PART
       # liquor, bitters, modifier
