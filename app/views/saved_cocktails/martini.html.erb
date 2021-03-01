@@ -1,0 +1,25 @@
+<h1>
+  The <%= @the_cocktail.name %>
+</h1>
+
+<div>
+  <a href="/cocktails">
+    All cocktails
+  </a>
+</div>
+
+<ul>
+  <li>
+    2.5 oz <%= @the_cocktail.liquor.name %>
+  </li>
+  <li>
+    1/4 oz <%= @the_cocktail.modifier.name %>
+  </li>
+</ul>
+<h3>
+  Technique
+</h3>
+
+<p>
+  In a mixing glass, add <%= @the_cocktail.liquor.name.downcase %> and <%= @the_cocktail.modifier.name.downcase %> over ice. Stir for 20 seconds or to your preferred coldness, then strain into a chilled martini glass. May be garnished with olive or by squeezing oil from lemon peel onto the finished drink.
+</p>

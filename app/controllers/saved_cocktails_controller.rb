@@ -10,11 +10,23 @@ class SavedCocktailsController < ApplicationController
   def show
     the_id = params.fetch("path_id")
 
-    matching_saved_cocktails = SavedCocktail.where({ :id => the_id })
+    @the_cocktail = SavedCocktail.where({ :id => the_id }).at(0)
 
-    @the_saved_cocktail = matching_saved_cocktails.at(0)
-
-    render({ :template => "saved_cocktails/show.html.erb" })
+    format_redirect = @the_cocktail.format_id
+    
+    if format_redirect == 1
+      render({ :template => "saved_cocktails/three_part.html.erb" })
+    elsif format_redirect == 2
+      render({ :template => "saved_cocktails/fizz.html.erb" })
+    elsif format_redirect == 3
+      render({ :template => "saved_cocktails/martini.html.erb" })
+    elsif format_redirect == 4
+      render({ :template => "saved_cocktails/old_fashioned.html.erb" })
+    elsif format_redirect == 5
+      render({ :template => "saved_cocktails/sidecar.html.erb" })
+    else
+      render({ :template => "saved_cocktails/sour.html.erb" })
+    end
   end
 
   def create

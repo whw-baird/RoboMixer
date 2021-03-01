@@ -1,0 +1,28 @@
+<h1>
+  The <%= @the_cocktail.name %>
+</h1>
+
+<div>
+  <a href="/saved_cocktails">
+    Your saved cocktails
+  </a>
+</div>
+
+<ul>
+  <li>
+    2 oz <%= @the_cocktail.liquor.name %>
+  </li>
+  <li>
+    1 oz <%= @the_cocktail.citrus.name %>
+  </li>
+  <li>
+    <%= @the_cocktail.soda.name %>
+  </li>
+</ul>
+<h3>
+  Technique
+</h3>
+
+<p>
+  In a cocktail shaker, add <%= @the_cocktail.liquor.name.downcase %> and <%= @the_cocktail.citrus.name.downcase %> over ice. Close and shake for 20 seconds, then pour into a highball glass. Top with <%= @the_cocktail.soda.name.downcase %>. Garnish with <% if @the_cocktail.citrus == 1 %>lemon twist<% else %>lime wedge<% end %>.
+</p>

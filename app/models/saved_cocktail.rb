@@ -43,7 +43,7 @@ class SavedCocktail < ApplicationRecord
 
   belongs_to(:citrus, 
     { :required => false, 
-    :class_name => "Citru", 
+    :class_name => "Citrus", 
     :foreign_key => "citrus_id" 
   })
 

@@ -1,0 +1,36 @@
+<h1>
+  The <%= @the_cocktail.name %>
+</h1>
+
+<div>
+  <a href="/cocktails">
+    All cocktails
+  </a>
+</div>
+
+<ul>
+  <li>
+    2 oz <%= @the_cocktail.liquor.name %>
+  </li>
+  <li>
+    <% if @the_cocktail.modifier.id != 9 %>
+      1 oz <%= @the_cocktail.modifier.name %>
+    <% else %>
+      1 dash <%= @the_cocktail.modifier.name %>
+    <% end %>
+  </li>
+  <li>
+    <% if @the_cocktail.bitters.id < 5 %> 
+      2 dashes <%= @the_cocktail.bitters.name %>
+    <% else %>
+      1 oz <%= @the_cocktail.bitters.name %>
+    <% end %>
+  </li>
+</ul>
+<h3>
+  Technique
+</h3>
+
+<p>
+  In a mixing glass, add <%= @the_cocktail.liquor.name.downcase %>, <%= @the_cocktail.modifier.name.downcase %>, and <%= @the_cocktail.bitters.name %> over ice. Stir for 20 seconds or to your preferred coldness, then strain into a rocks glass over ice. Garnish with an orange twist and/or a maraschino cherry.
+</p>
