@@ -40,12 +40,15 @@ class SavedCocktailsController < ApplicationController
     the_saved_cocktail.citrus_id = params.fetch("query_citrus_id")
     the_saved_cocktail.soda_id = params.fetch("query_soda_id")
     the_saved_cocktail.modifier_id = params.fetch("query_modifier_id")
-
-    if the_saved_cocktail.valid?
-      the_saved_cocktail.save
-      redirect_to("/saved_cocktails", { :notice => "Saved cocktail created successfully." })
-    else
-      redirect_to("/saved_cocktails", { :notice => "Saved cocktail failed to create successfully." })
+    if session[:user_id] != nil
+      if the_saved_cocktail.valid?
+        the_saved_cocktail.save
+        redirect_to("/saved_cocktails", { :notice => "Cocktail saved." })
+      else
+        redirect_to("/saved_cocktails", { :notice => "Cocktail failed to save." })
+      end
+    else  
+      redirect_to("/user_sign_in", { :alert => "Must sign in to save cocktails." })
     end
   end
 
@@ -57,9 +60,9 @@ class SavedCocktailsController < ApplicationController
 
     if the_saved_cocktail.valid?
       the_saved_cocktail.save
-      redirect_to("/saved_cocktails/#{the_saved_cocktail.id}", { :notice => "Saved cocktail updated successfully."} )
+      redirect_to("/saved_cocktails/#{the_saved_cocktail.id}", { :notice => "Name updated successfully."} )
     else
-      redirect_to("/saved_cocktails/#{the_saved_cocktail.id}", { :alert => "Saved cocktail failed to update successfully." })
+      redirect_to("/saved_cocktails/#{the_saved_cocktail.id}", { :alert => "Failed to update name." })
     end
   end
 
@@ -69,6 +72,6 @@ class SavedCocktailsController < ApplicationController
 
     the_saved_cocktail.destroy
 
-    redirect_to("/saved_cocktails", { :notice => "Saved cocktail deleted successfully."} )
+    redirect_to("/saved_cocktails", { :notice => "Cocktail deleted successfully."} )
   end
 end
