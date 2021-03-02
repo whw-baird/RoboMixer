@@ -40,6 +40,8 @@ class SavedCocktailsController < ApplicationController
     the_saved_cocktail.citrus_id = params.fetch("query_citrus_id")
     the_saved_cocktail.soda_id = params.fetch("query_soda_id")
     the_saved_cocktail.modifier_id = params.fetch("query_modifier_id")
+    the_saved_cocktail.image = params.fetch("query_image")
+
     if session[:user_id] != nil
       if the_saved_cocktail.valid?
         the_saved_cocktail.save
@@ -50,6 +52,7 @@ class SavedCocktailsController < ApplicationController
     else  
       redirect_to("/user_sign_in", { :alert => "Must sign in to save cocktails." })
     end
+
   end
 
   def update
