@@ -2,7 +2,7 @@ class SavedCocktailsController < ApplicationController
   def index
     matching_saved_cocktails = SavedCocktail.where({ :user_id => session[:user_id] })
 
-    @list_of_saved_cocktails = matching_saved_cocktails.order({ :created_at => :desc })
+    @list_of_saved_cocktails = matching_saved_cocktails.order({ :updated_at => :desc })
 
     render({ :template => "saved_cocktails/index.html.erb" })
   end

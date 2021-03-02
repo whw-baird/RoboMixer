@@ -6,119 +6,82 @@
 
 <hr>
 <div>
-  <div>
-    <table>
-      <tr>
-        <th>
-          ID
-        </th>
+  <table border="1">
+    <tr>
+      <th>
+        Format
+      </th>
 
-        <th>
-          User
-        </th>
+      <th>
+        Name
+      </th>
 
-        <th>
-          Format
-        </th>
+      <th>
+        Ingredients
+      </th>
 
-        <th>
-          Name
-        </th>
+      <th>
+        Instructions
+      </th>
+    </tr>
 
-        <th>
-          Liquor
-        </th>
+    <% @list_of_saved_cocktails.each do |a_cocktail| %>
+    <tr>
+      <td>
+        <%= a_cocktail.format.name %>
+      </td>
 
-        <th>
-          Sweetener
-        </th>
+      <td>
+        <%= a_cocktail.name %>
+      </td>
 
-        <th>
-          Bitters
-        </th>
+      <td>
+        <ul>
+          <li>
+            <%= a_cocktail.liquor.name %>
+          </li>
 
-        <th>
-          Citrus
-        </th>
+          <% if a_cocktail.sweetener.present? %>
+            <li>
+              <%= a_cocktail.sweetener.name %>
+            </li>
+          <% end %>
 
-        <th>
-          Soda
-        </th>
+          <% if a_cocktail.bitters.present? %>
+            <li>
+              <%= a_cocktail.bitters.name %>
+            </li>
+          <% end %>
 
-        <th>
-          Modifier
-        </th>
+          <% if a_cocktail.citrus.present? %>
+            <li>
+              <%= a_cocktail.citrus.name %>
+            </li>
+          <% end %>
 
-        <th>
-          Created at
-        </th>
+          <% if a_cocktail.soda.present? %>
+            <li>
+              <%= a_cocktail.soda.name %>
+            </li>
+          <% end %>
 
-        <th>
-          Updated at
-        </th>
+          <% if a_cocktail.modifier.present? %>
+            <li>
+              <%= a_cocktail.modifier.name %>
+            </li>
+          <% end %>
 
-        <th>
-        </th>
-      </tr>
+        </ul>
+      </td>
 
-      <% @list_of_saved_cocktails.each do |a_saved_cocktail| %>
-      <tr>
-        <td>
-          <%= a_saved_cocktail.id %>
-        </td>
-
-        <td>
-          <%= a_saved_cocktail.user_id %>
-        </td>
-
-        <td>
-          <%= a_saved_cocktail.format.name %>
-        </td>
-
-        <td>
-          <%= a_saved_cocktail.name %>
-        </td>
-
-        <td>
-          <%= a_saved_cocktail.liquor.name %>
-        </td>
-
-        <td>
-          <%= a_saved_cocktail.sweetener_id %>
-        </td>
-
-        <td>
-          <%= a_saved_cocktail.bitters_id %>
-        </td>
-
-        <td>
-          <%= a_saved_cocktail.citrus_id %>
-        </td>
-
-        <td>
-          <%= a_saved_cocktail.soda_id %>
-        </td>
-
-        <td>
-          <%= a_saved_cocktail.modifier_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_saved_cocktail.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_saved_cocktail.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/saved_cocktails/<%= a_saved_cocktail.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
+      <td>
+        <a href="/saved_cocktails/<%= a_cocktail.id %>">
+          Show details
+        </a>
+      </td>
+    </tr>
+    <% end %>
+  </table>
 </div>
 
 <hr>
