@@ -10,6 +10,10 @@
   <table border="1">
     <tr>
       <th>
+        Image
+      </th>
+
+      <th>
         Format
       </th>
 
@@ -28,6 +32,11 @@
 
     <% @list_of_cocktails.each do |a_cocktail| %>
     <tr>
+
+      <td>
+        <img src="<%= a_cocktail.image %>" width ="250">
+      </td>
+
       <td>
         <%= a_cocktail.format.name %>
       </td>
