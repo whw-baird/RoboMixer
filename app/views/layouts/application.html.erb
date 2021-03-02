@@ -22,12 +22,19 @@
       <li>
         <a href="/generator">RoboMix</a>
       </li>
-      <li>
-        <a href="/user_sign_in">Sign In</a>
-      </li>
-      <li>
-        <a href="/user_sign_out">Sign Out</a>
-      </li>
+      <% if session[:user_id] == nil %>
+        <li>
+          <a href="/user_sign_in">Sign In</a>
+        </li>
+      <% end %>
+      <% if session[:user_id] != nil %>
+        <li>
+          <a href="/saved_cocktails">Saved Cocktails</a>
+        </li>
+        <li>
+          <a href="/user_sign_out">Sign Out</a>
+        </li>
+      <% end %>
     </ul>
   </nav>
 

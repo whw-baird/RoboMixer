@@ -1,39 +1,51 @@
-<h1>Your RoboMix cocktail:</h1>
-<p>
-  A <%= @robo_format.name %>-format cocktail
-</p>
-With:
-<ul>
-  <li>
-    2 oz <%= @robo_liquor.name %>
-  </li>
+<div>  
+  <h1>
+    Your RoboMix cocktail:
+  </h1>
+</div>
+<div>
+  <p>
+    A <%= @robo_format.name %>-format cocktail
+  </p>
+  With:
+  <ul>
+    <li>
+      2 oz <%= @robo_liquor.name %>
+    </li>
 
-  <li>
-    1 oz <%= @robo_citrus.name %>
-  </li>
+    <li>
+      1 oz <%= @robo_citrus.name %>
+    </li>
 
-  <li>
-    <%= @robo_soda.name %>
-  </li>
-</ul>
+    <li>
+      <%= @robo_soda.name %>
+    </li>
+  </ul>
 
-<h3>
-  Suggested technique:
-</h3>
-<p>
-  In a cocktail shaker, add <%= @robo_liquor.name.downcase %> and <%= @robo_citrus.name.downcase %> over ice. Close and shake for 20 seconds, then pour into a highball glass. Top with <%= @robo_soda.name.downcase %>. Garnish with lime wedge.
-</p>
-<form action="/insert_saved_cocktail" method="post">
-  <input type="hidden" id="user_id_box" value="<%= session[:user_id] %>" name="query_user_id">
-  <input type="hidden" id="format_id_box" value="<%= @robo_format.id %>" name="query_format_id">
-  <input type="hidden" id="name_box" value="RoboMix Cocktail #<%= @robo_number %>" name="query_name">
-  <input type="hidden" id="liquor_id_box" value="<%= @robo_liquor.id %>" name="query_liquor_id">
-  <input type="hidden" id="sweetener_id_box" value="" name="query_sweetener_id">
-  <input type="hidden" id="bitters_id_box" value="" name="query_bitters_id">
-  <input type="hidden" id="citrus_id_box" value="<%= @robo_citrus.id %>" name="query_citrus_id">
-  <input type="hidden" id="soda_id_box" value="<%= @robo_soda.id %>" name="query_soda_id">
-  <input type="hidden" id="modifier_id_box" value="" name="query_modifier_id">
-  <button>
-    Save cocktail
-  </button>
-</form>
+  <h3>
+    Suggested technique:
+  </h3>
+  <p>
+    In a cocktail shaker, add <%= @robo_liquor.name.downcase %> and <%= @robo_citrus.name.downcase %> over ice. Close and shake for 20 seconds, then pour into a highball glass. Top with <%= @robo_soda.name.downcase %>. Garnish with lime wedge.
+  </p>
+</div>
+<div>
+  <form action="/insert_saved_cocktail" method="post">
+    <input type="hidden" id="user_id_box" value="<%= session[:user_id] %>" name="query_user_id">
+    <input type="hidden" id="format_id_box" value="<%= @robo_format.id %>" name="query_format_id">
+    <input type="hidden" id="name_box" value="RoboMix Cocktail #<%= @robo_number %>" name="query_name">
+    <input type="hidden" id="liquor_id_box" value="<%= @robo_liquor.id %>" name="query_liquor_id">
+    <input type="hidden" id="sweetener_id_box" value="" name="query_sweetener_id">
+    <input type="hidden" id="bitters_id_box" value="" name="query_bitters_id">
+    <input type="hidden" id="citrus_id_box" value="<%= @robo_citrus.id %>" name="query_citrus_id">
+    <input type="hidden" id="soda_id_box" value="<%= @robo_soda.id %>" name="query_soda_id">
+    <input type="hidden" id="modifier_id_box" value="" name="query_modifier_id">
+    <button>
+      Save cocktail
+    </button>
+  </form>
+</div>
+<div>
+  <form action="/generator/output">
+  <button>ROBOMIX</button>
+</div>
