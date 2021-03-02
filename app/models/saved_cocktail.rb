@@ -3,7 +3,9 @@
 # Table name: saved_cocktails
 #
 #  id           :integer          not null, primary key
+#  image        :string
 #  name         :string
+#  notes        :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  bitters_id   :integer

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_052051) do
+ActiveRecord::Schema.define(version: 2021_03_02_171159) do
 
   create_table "bitters", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_052051) do
     t.integer "modifier_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
   end
 
   create_table "formats", force: :cascade do |t|
@@ -67,6 +68,8 @@ ActiveRecord::Schema.define(version: 2021_02_22_052051) do
     t.integer "modifier_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
+    t.string "notes"
   end
 
   create_table "sodas", force: :cascade do |t|
