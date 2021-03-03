@@ -9,6 +9,9 @@
   <table border="1">
     <tr>
       <th>
+        Image
+      </th>
+      <th>
         Format
       </th>
 
@@ -27,6 +30,12 @@
 
     <% @list_of_saved_cocktails.each do |a_cocktail| %>
     <tr>
+      <td>
+        <% if a_cocktail.image.present? %>
+          <img src="<%= a_cocktail.image %>" width="250">
+        <% end %>
+      </td>
+      
       <td>
         <%= a_cocktail.format.name %>
       </td>
