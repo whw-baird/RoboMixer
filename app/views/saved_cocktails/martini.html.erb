@@ -25,6 +25,35 @@
 </p>
 
 <div>
+  <h3>
+    Notes
+  </h3>
+  
+  <% if @the_cocktail.notes.present? %>
+    <p>
+      <%= @the_cocktail.notes %>
+    </p>
+    <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
+    <label for="notes_box">
+      Edit notes:
+    </label>
+    <input type="text" id="notes_box" name="query_notes" placeholder="<%= @the_cocktail.notes %>">
+    <button>
+      Save notes
+    </button>
+  <% else %>
+    <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
+    <label for="notes_box">
+      Add notes:
+    </label>
+    <input type="text" id="notes_box" name="query_notes" placeholder="Add notes on this cocktail">
+    <button>
+      Save notes
+    </button>
+  <% end %>
+<div>
+
+<div>
   <div>
     <h2>
       Change cocktail name

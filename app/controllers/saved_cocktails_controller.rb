@@ -42,7 +42,7 @@ class SavedCocktailsController < ApplicationController
     the_saved_cocktail.modifier_id = params.fetch("query_modifier_id")
     the_saved_cocktail.image = params.fetch("query_image")
 
-    if session[:user_id] != nil
+    if session[:user_id].present?
       if the_saved_cocktail.valid?
         the_saved_cocktail.save
         redirect_to("/saved_cocktails", { :notice => "Cocktail saved." })
@@ -67,6 +67,16 @@ class SavedCocktailsController < ApplicationController
     else
       redirect_to("/saved_cocktails/#{the_saved_cocktail.id}", { :alert => "Failed to update name." })
     end
+  end
+
+  def update_notes
+      the_id = params.fetch("path_id")
+      the_saved_cocktail = SavedCocktail.where({ :id => the_id }).at(0)
+
+      the_saved_cocktail.notes = params.fetch("query_notes")
+      the_saved_cocktail.save
+
+      redirect_to("/saved_cocktails/#{the_saved_cocktail.id}", { :notice => "Notes updated successfully."})
   end
 
   def destroy

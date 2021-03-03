@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   
   post("/modify_saved_cocktail/:path_id", { :controller => "saved_cocktails", :action => "update" })
   
+  post("/add_notes/:path_id", { :controller => "saved_cocktails", :action => "update_notes"})
+
   # DELETE
   get("/delete_saved_cocktail/:path_id", { :controller => "saved_cocktails", :action => "destroy" })
 
