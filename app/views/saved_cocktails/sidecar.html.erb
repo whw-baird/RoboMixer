@@ -8,6 +8,12 @@
   </a>
 </div>
 
+<div>
+  <% if @the_cocktail.image.present? %>
+    <img src="<%= @the_cocktail.image %>" width="250">
+  <% end %>
+</div>
+
 <ul>
   <li>
     1.5 oz <%= @the_cocktail.liquor.name %>
