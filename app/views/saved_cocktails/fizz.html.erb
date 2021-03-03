@@ -60,7 +60,16 @@
       Save notes
     </button>
   <% end %>
+</div>
+
 <div>
+  <form action="/image_upload/<%= @the_cocktail.id %>" method="post">
+  <label for="image">Upload picture:</label>
+  <input type="file" id = "image" name="image_file" accept="/image*">
+  <button>
+    Upload
+  </button>
+</div>
 
 <div>
   <div>

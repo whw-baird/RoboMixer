@@ -79,6 +79,16 @@ class SavedCocktailsController < ApplicationController
       redirect_to("/saved_cocktails/#{the_saved_cocktail.id}", { :notice => "Notes updated successfully."})
   end
 
+  def image_upload
+    the_id = params.fetch("path_id")
+    the_saved_cocktail = SavedCocktail.where({ :id => the_id }).at(0)
+
+    the_saved_cocktial.image = params.fetch("image_file")
+    the_saved_cocktail.save
+
+    redirect_to("/saved_cocktails/#{the_saved_cocktail.id}", { :notice => "Image uploaded successfully."})
+  end
+
   def destroy
     the_id = params.fetch("path_id")
     the_saved_cocktail = SavedCocktail.where({ :id => the_id }).at(0)

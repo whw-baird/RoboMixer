@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
+  # Routes for Robomixer: 
 
+  # HOMEPAGE
   get("/", { :controller => "robomix", :action => "home" })
+
+  # ROBOMIX PAGE
   get("/generator", { :controller => "robomix", :action => "generator" })
+
+  # ROBOMIX OUTPUT
   get("/generator/output", { :controller => "robomix", :action => "output" })
+
+  #------------------------------
 
   # Routes for the Cocktail resource:
 
@@ -37,7 +45,9 @@ Rails.application.routes.draw do
   
   post("/modify_saved_cocktail/:path_id", { :controller => "saved_cocktails", :action => "update" })
   
-  post("/add_notes/:path_id", { :controller => "saved_cocktails", :action => "update_notes"})
+  post("/add_notes/:path_id", { :controller => "saved_cocktails", :action => "update_notes" })
+
+  post("/image_upload/:path_id", { :controller => "saved_cocktails", :action => "image_upload" })
 
   # DELETE
   get("/delete_saved_cocktail/:path_id", { :controller => "saved_cocktails", :action => "destroy" })
