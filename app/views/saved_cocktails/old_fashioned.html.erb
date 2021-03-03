@@ -1,85 +1,87 @@
-<h1>
-  The <%= @the_cocktail.name %>
-</h1>
+<body>
+  <h1>
+    The <%= @the_cocktail.name %>
+  </h1>
 
-<div>
-  <a href="/saved_cocktails">
-    Your saved cocktails
-  </a>
-</div>
-
-<div>
-  <% if @the_cocktail.image.present? %>
-    <img src="<%= @the_cocktail.image %>" width="250">
-  <% end %>
-</div>
-
-<ul>
-  <li>
-    1.5 oz <%= @the_cocktail.liquor.name %>
-  </li>
-  <li>
-    3/4 oz <%= @the_cocktail.sweetener.name %>
-  </li>
-  <li>
-    2 dashes <%= @the_cocktail.bitters.name %>
-  </li>
-</ul>
-<h3>
-  Technique
-</h3>
-
-<p>
-  In a mixing glass, add <%= @the_cocktail.liquor.name.downcase %>, <%= @the_cocktail.sweetener.name.downcase %>, and <%= @the_cocktail.bitters.name %> over ice. Stir for 20 seconds or to your preferred coldness, then strain into a rocks glass over ice. Garnish with an orange twist and/or a maraschino cherry.
-</p>
-
-<div>
-  <h3>
-    Notes
-  </h3>
-  
-  <% if @the_cocktail.notes.present? %>
-    <p>
-      <%= @the_cocktail.notes %>
-    </p>
-    <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
-    <label for="notes_box">
-      Edit notes:
-    </label>
-    <input type="text" id="notes_box" name="query_notes" placeholder="<%= @the_cocktail.notes %>">
-    <button>
-      Save notes
-    </button>
-  <% else %>
-    <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
-    <label for="notes_box">
-      Add notes:
-    </label>
-    <input type="text" id="notes_box" name="query_notes" placeholder="Add notes on this cocktail">
-    <button>
-      Save notes
-    </button>
-  <% end %>
-<div>
-
-<div>
   <div>
-    <h2>
-      Change cocktail name
-    </h2>
-
-    <form action="/modify_saved_cocktail/<%= @the_cocktail.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          New name:
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
-      </div>
-
-      <button>
-        Update saved cocktail
-      </button>
-    </form>
+    <a href="/saved_cocktails">
+      Your saved cocktails
+    </a>
   </div>
-</div>
+
+  <div>
+    <% if @the_cocktail.image.present? %>
+      <img src="<%= @the_cocktail.image %>" width="250">
+    <% end %>
+  </div>
+
+  <ul>
+    <li>
+      1.5 oz <%= @the_cocktail.liquor.name %>
+    </li>
+    <li>
+      3/4 oz <%= @the_cocktail.sweetener.name %>
+    </li>
+    <li>
+      2 dashes <%= @the_cocktail.bitters.name %>
+    </li>
+  </ul>
+  <h3>
+    Technique
+  </h3>
+
+  <p>
+    In a mixing glass, add <%= @the_cocktail.liquor.name.downcase %>, <%= @the_cocktail.sweetener.name.downcase %>, and <%= @the_cocktail.bitters.name %> over ice. Stir for 20 seconds or to your preferred coldness, then strain into a rocks glass over ice. Garnish with an orange twist and/or a maraschino cherry.
+  </p>
+
+  <div>
+    <h3>
+      Notes
+    </h3>
+    
+    <% if @the_cocktail.notes.present? %>
+      <p>
+        <%= @the_cocktail.notes %>
+      </p>
+      <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
+      <label for="notes_box">
+        Edit notes:
+      </label>
+      <input type="text" id="notes_box" name="query_notes" placeholder="<%= @the_cocktail.notes %>">
+      <button>
+        Save notes
+      </button>
+    <% else %>
+      <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
+      <label for="notes_box">
+        Add notes:
+      </label>
+      <input type="text" id="notes_box" name="query_notes" placeholder="Add notes on this cocktail">
+      <button>
+        Save notes
+      </button>
+    <% end %>
+  <div>
+
+  <div>
+    <div>
+      <h2>
+        Change cocktail name
+      </h2>
+
+      <form action="/modify_saved_cocktail/<%= @the_cocktail.id %>"  method="post" >
+        <div>
+          <label for="name_box">
+            New name:
+          </label>
+
+          <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
+        </div>
+
+        <button>
+          Update saved cocktail
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
