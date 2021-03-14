@@ -44,32 +44,43 @@
         <%= @the_cocktail.notes %>
       </p>
       <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
-      <label for="notes_box">
-        Edit notes:
-      </label>
-      <input type="text" id="notes_box" name="query_notes" placeholder="<%= @the_cocktail.notes %>">
-      <button>
-        Save notes
-      </button>
+        <div>
+          <label for="notes_box">
+            Edit notes:
+          </label>
+          <input type="text" id="notes_box" name="query_notes" placeholder="<%= @the_cocktail.notes %>">
+        </div>
+
+        <button>
+          Save notes
+        </button>
+      </form>
     <% else %>
       <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
-      <label for="notes_box">
-        Add notes:
-      </label>
-      <input type="text" id="notes_box" name="query_notes" placeholder="Add notes on this cocktail">
-      <button>
-        Save notes
-      </button>
+        <div>
+          <label for="notes_box">
+            Add notes:
+          </label>
+          <input type="text" id="notes_box" name="query_notes" placeholder="Add notes on this cocktail">
+        </div>
+        <button>
+          Save notes
+        </button>
+      </form>
     <% end %>
   </div>
 
   <div>
-    <form action="/image_upload/<%= @the_cocktail.id %>" method="post">
-    <label for="image">Upload picture:</label>
-    <input type="file" id = "image" name="image_file" accept="/image*">
-    <button>
-      Upload
-    </button>
+    <form action="/image_upload/<%= @the_cocktail.id %>" method="post" enctype="multipart/form-data">
+      <div>
+        <label for="image">Upload picture:</label>
+        <input type="file" id = "image" name="image" accept="/image*">
+      </div>
+
+      <button>
+        Upload
+      </button>
+    </form>
   </div>
 
   <div>
