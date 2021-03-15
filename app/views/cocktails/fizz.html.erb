@@ -1,29 +1,28 @@
-<body>
+<div class="container">
   <h1>
     The <%= @the_cocktail.name %>
   </h1>
-
-  <div>
-    <a href="/cocktails">
-      All cocktails
-    </a>
+  <div class="d-flex justify-content-start">
+    <div class="container">
+      <img src="<%= @the_cocktail.image %>" width="250">
+    </div>
+    <div class="container">
+      <p>
+        <strong>Ingredients:</strong>
+      </p>
+      <ul>
+        <li>
+          2 oz <%= @the_cocktail.liquor.name %>
+        </li>
+        <li>
+          1 oz <%= @the_cocktail.citrus.name %>
+        </li>
+        <li>
+          <%= @the_cocktail.soda.name %>
+        </li>
+      </ul>
+    </div>
   </div>
-
-  <div>
-    <img src="<%= @the_cocktail.image %>" width="250">
-  </div>
-
-  <ul>
-    <li>
-      2 oz <%= @the_cocktail.liquor.name %>
-    </li>
-    <li>
-      1 oz <%= @the_cocktail.citrus.name %>
-    </li>
-    <li>
-      <%= @the_cocktail.soda.name %>
-    </li>
-  </ul>
   <h3>
     Technique
   </h3>
@@ -43,8 +42,8 @@
     <input type="hidden" id="soda_id_box" value="<%= @the_cocktail.soda_id %>" name="query_soda_id">
     <input type="hidden" id="modifier_id_box" value="<%= @the_cocktail.modifier_id %>" name="query_modifier_id">
     <input type="hidden" id="image_box" value="<%= @the_cocktail.image %>" name="query_image">
-    <button>
+    <button class="btn btn-secondary">
       Save cocktail
     </button>
   </form>
-</body>
+</div>
