@@ -7,54 +7,55 @@
 <hr>
 
 <div class="d-flex flex-wrap justify-content-between">
-  <% @list_of_saved_cocktails.each do |a_cocktail| %>
-    <div class="card" style="width: 18rem">
-    <!-- <img class="card-img-top" src="<%= a_cocktail.image %>"> -->
-    <div class="card-body">
-      <h4 class="card-title"><%= a_cocktail.name %></h4>
-      <p class="card-text">
-        A cocktail in the <%= a_cocktail.format.name %> family.
-      </p>
-      <p class="card-text">
-        Ingredients: 
-        <ul>
-          <li>
-            <%= a_cocktail.liquor.name %>
-          </li>
-
-          <% if a_cocktail.sweetener.present? %>
+    <% @list_of_saved_cocktails.each do |a_cocktail| %>
+      <div class="card" style="width: 18rem" padding-bottom="20px">
+      <h3 class="card-header"><%= a_cocktail.name %></h3>
+      <!-- <img class="card-img-top" src="<%= a_cocktail.image %>"> -->
+      <div class="card-body">
+        <p class="card-text">
+          A cocktail in the <%= a_cocktail.format.name %> family.
+        </p>
+        <p class="card-text">
+          Ingredients: 
+          <ul>
             <li>
-              <%= a_cocktail.sweetener.name %>
+              <%= a_cocktail.liquor.name %>
             </li>
-          <% end %>
 
-          <% if a_cocktail.bitters.present? %>
-            <li>
-              <%= a_cocktail.bitters.name %>
-            </li>
-          <% end %>
+            <% if a_cocktail.sweetener.present? %>
+              <li>
+                <%= a_cocktail.sweetener.name %>
+              </li>
+            <% end %>
 
-          <% if a_cocktail.citrus.present? %>
-            <li>
-              <%= a_cocktail.citrus.name %>
-            </li>
-          <% end %>
+            <% if a_cocktail.bitters.present? %>
+              <li>
+                <%= a_cocktail.bitters.name %>
+              </li>
+            <% end %>
 
-          <% if a_cocktail.soda.present? %>
-            <li>
-              <%= a_cocktail.soda.name %>
-            </li>
-          <% end %>
+            <% if a_cocktail.citrus.present? %>
+              <li>
+                <%= a_cocktail.citrus.name %>
+              </li>
+            <% end %>
 
-          <% if a_cocktail.modifier.present? %>
-            <li>
-              <%= a_cocktail.modifier.name %>
-            </li>
-          <% end %>
-        </ul>
-      </p>
-      <a href="/cocktails/<%= a_cocktail.name %>" class="btn btn-secondary">Show details</a>
-    </div>
-    </div>
-  <% end %>
+            <% if a_cocktail.soda.present? %>
+              <li>
+                <%= a_cocktail.soda.name %>
+              </li>
+            <% end %>
+
+            <% if a_cocktail.modifier.present? %>
+              <li>
+                <%= a_cocktail.modifier.name %>
+              </li>
+            <% end %>
+          </ul>
+        </p>
+        <a href="/saved_cocktails/<%= a_cocktail.id %>" class="btn btn-secondary">Show details</a>
+      </div>
+      </div>
+    <% end %>
+  </div>
 </div>
