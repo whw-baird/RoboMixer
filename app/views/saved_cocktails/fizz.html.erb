@@ -30,12 +30,12 @@
 </div>
 -->
 
-<!--  <div>
+<div>
     <% if @the_cocktail.image.present? %>
       <img src="<%= @the_cocktail.image %>" width="250">
     <% end %>
   </div>
--->
+
   <ul>
     <li>
       2 oz <%= @the_cocktail.liquor.name %>
@@ -90,7 +90,7 @@
       </form>
     <% end %>
   </div>
-<!--
+
   <div>
     <form action="/image_upload/<%= @the_cocktail.id %>" method="post" enctype="multipart/form-data">
       <div>
@@ -103,7 +103,7 @@
       </button>
     </form>
   </div>
--->
+
   <div>
     <div>
       <h2>

@@ -10,7 +10,9 @@
     <% @list_of_saved_cocktails.each do |a_cocktail| %>
       <div class="card" style="width: 18rem" padding-bottom="20px">
       <h3 class="card-header"><%= a_cocktail.name %></h3>
-      <!-- <img class="card-img-top" src="<%= a_cocktail.image %>"> -->
+      <% if a_cocktail.image.present? %>
+        <img class="card-img-top" src="<%= a_cocktail.image %>">
+      <% end %>
       <div class="card-body">
         <p class="card-text">
           A cocktail in the <%= a_cocktail.format.name %> family.

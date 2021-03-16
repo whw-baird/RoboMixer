@@ -325,6 +325,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seed_dump (3.3.1)
+      activerecord (>= 4)
+      activesupport (>= 4)
     simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -409,6 +412,7 @@ DEPENDENCIES
   rspec-html-matchers
   rspec-rails
   sassc-rails
+  seed_dump
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets (< 4)

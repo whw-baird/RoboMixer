@@ -15,8 +15,9 @@ gem 'sassc-rails'
 
 gem 'faker'
 
-gem "carrierwave"
-gem "cloudinary"
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'seed_dump'
 
 group :development do
   gem 'listen', '~> 3.2'
