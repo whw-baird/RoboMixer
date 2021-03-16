@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   post("/image_upload/:path_id", { :controller => "saved_cocktails", :action => "image_upload" })
 
   # DELETE
-  get("/delete_saved_cocktail/:path_id", { :controller => "saved_cocktails", :action => "destroy" })
+  post("/delete_saved_cocktail/:path_id", { :controller => "saved_cocktails", :action => "destroy" })
 
   #------------------------------
 
