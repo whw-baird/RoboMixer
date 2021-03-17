@@ -1,191 +1,103 @@
-<body>
+<div>
+  <h1>
+    The <%= @the_cocktail.name %>
+  </h1>
+
+  <h4>
+    A cocktail in the <%= @the_cocktail.format.name %> family.
+  </h4>
+
   <div>
-    <div>
-      <h1>
-        Saved cocktail #<%= @the_saved_cocktail.id %> details
-      </h1>
-
-      <div>
-        <div>
-          <a href="/saved_cocktails">
-            Go back
-          </a>
-        </div>
-
-        <div>
-          <a href="/delete_saved_cocktail/<%= @the_saved_cocktail.id %>">
-            Delete saved cocktail
-          </a>
-        </div>
-      </div>
-
-      <dl>
-        <dt>
-          User
-        </dt>
-        <dd>
-          <%= @the_saved_cocktail.user_id %>
-        </dd>
-
-        <dt>
-          Format
-        </dt>
-        <dd>
-          <%= @the_saved_cocktail.format_id %>
-        </dd>
-
-        <dt>
-          Name
-        </dt>
-        <dd>
-          <%= @the_saved_cocktail.name %>
-        </dd>
-
-        <dt>
-          Liquor
-        </dt>
-        <dd>
-          <%= @the_saved_cocktail.liquor_id %>
-        </dd>
-
-        <dt>
-          Sweetener
-        </dt>
-        <dd>
-          <%= @the_saved_cocktail.sweetener_id %>
-        </dd>
-
-        <dt>
-          Bitters
-        </dt>
-        <dd>
-          <%= @the_saved_cocktail.bitters_id %>
-        </dd>
-
-        <dt>
-          Citrus
-        </dt>
-        <dd>
-          <%= @the_saved_cocktail.citrus_id %>
-        </dd>
-
-        <dt>
-          Soda
-        </dt>
-        <dd>
-          <%= @the_saved_cocktail.soda_id %>
-        </dd>
-
-        <dt>
-          Modifier
-        </dt>
-        <dd>
-          <%= @the_saved_cocktail.modifier_id %>
-        </dd>
-
-        <dt>
-          Created at
-        </dt>
-        <dd>
-          <%= time_ago_in_words(@the_saved_cocktail.created_at) %> ago
-        </dd>
-
-        <dt>
-          Updated at
-        </dt>
-        <dd>
-          <%= time_ago_in_words(@the_saved_cocktail.updated_at) %> ago
-        </dd>
-      </dl>
-    </div>
+    <% if @the_cocktail.image.present? %>
+      <img src="<%= @the_cocktail.image %>" width="250">
+    <% end %>
   </div>
 
-  <hr>
+  <ul>
+    <li>
+      <% if @the_cocktail.format.id != 3 %>
+        2 oz <%= @the_cocktail.liquor.name %>
+      <% else %>
+        2.5 oz <%= @the_cocktail.liquor.name %>
+      <% end %>
+    </li>
+    <li>
+      <% if @the_cocktail.modifier.id != 9 %>
+        1 oz <%= @the_cocktail.modifier.name %>
+      <% else %>
+        1 dash <%= @the_cocktail.modifier.name %>
+      <% end %>
+    </li>
+    <li>
+      <% if @the_cocktail.bitters.id < 5 %> 
+        2 dashes <%= @the_cocktail.bitters.name %>
+      <% else %>
+        1 oz <%= @the_cocktail.bitters.name %>
+      <% end %>
+    </li>
+  </ul>
+  <h3>
+    Technique
+  </h3>
 
+  <p>
+    In a mixing glass, add <%= @the_cocktail.liquor.name.downcase %>, <%= @the_cocktail.modifier.name.downcase %>, and <%= @the_cocktail.bitters.name %> over ice. Stir for 20 seconds or to your preferred coldness, then strain into a rocks glass over ice. Garnish with an orange twist and/or a maraschino cherry.
+  </p>
+
+  <div>
+    <h3>
+      Notes
+    </h3>
+    
+    <% if @the_cocktail.notes.present? %>
+      <p>
+        <%= @the_cocktail.notes %>
+      </p>
+      
+      <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
+      <label for="notes_box">
+        Edit notes:
+      </label>
+      <input type="text" id="notes_box" name="query_notes" placeholder="<%= @the_cocktail.notes %>">
+      <button class="btn btn-secondary">
+        Save notes
+      </button>
+    <% else %>
+      <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
+      <label for="notes_box">
+        Add notes:
+      </label>
+      <input type="text" id="notes_box" name="query_notes" placeholder="Add notes on this cocktail">
+      <button class="btn btn-secondary">
+        Save notes
+      </button>
+    <% end %>
+  <div>
 
   <div>
     <div>
       <h2>
-        Edit saved cocktail
+        Change cocktail name
       </h2>
 
-      <form action="/modify_saved_cocktail/<%= @the_saved_cocktail.id %>"  method="post" >
-        <div>
-          <label for="user_id_box">
-            User
-          </label>
+      <form action="/modify_saved_cocktail/<%= @the_cocktail.id %>"  method="post" >
+        <label for="name_box">
+          New name:
+        </label>
 
-          <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_saved_cocktail.user_id %>">
-        </div>
-
-        <div>
-          <label for="format_id_box">
-            Format
-          </label>
-
-          <input type="text" id="format_id_box" name="query_format_id" value="<%= @the_saved_cocktail.format_id %>">
-        </div>
-
-        <div>
-          <label for="name_box">
-            Name
-          </label>
-
-          <input type="text" id="name_box" name="query_name" value="<%= @the_saved_cocktail.name %>">
-        </div>
-
-        <div>
-          <label for="liquor_id_box">
-            Liquor
-          </label>
-
-          <input type="text" id="liquor_id_box" name="query_liquor_id" value="<%= @the_saved_cocktail.liquor_id %>">
-        </div>
-
-        <div>
-          <label for="sweetener_id_box">
-            Sweetener
-          </label>
-
-          <input type="text" id="sweetener_id_box" name="query_sweetener_id" value="<%= @the_saved_cocktail.sweetener_id %>">
-        </div>
-
-        <div>
-          <label for="bitters_id_box">
-            Bitters
-          </label>
-
-          <input type="text" id="bitters_id_box" name="query_bitters_id" value="<%= @the_saved_cocktail.bitters_id %>">
-        </div>
-
-        <div>
-          <label for="citrus_id_box">
-            Citrus
-          </label>
-
-          <input type="text" id="citrus_id_box" name="query_citrus_id" value="<%= @the_saved_cocktail.citrus_id %>">
-        </div>
-
-        <div>
-          <label for="soda_id_box">
-            Soda
-          </label>
-
-          <input type="text" id="soda_id_box" name="query_soda_id" value="<%= @the_saved_cocktail.soda_id %>">
-        </div>
-
-        <div>
-          <label for="modifier_id_box">
-            Modifier
-          </label>
-
-          <input type="text" id="modifier_id_box" name="query_modifier_id" value="<%= @the_saved_cocktail.modifier_id %>">
-        </div>
-
-        <button>
+        <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
+        <button class="btn btn-secondary">
           Update saved cocktail
         </button>
       </form>
     </div>
   </div>
-</body>
+  <p></p>
+  <div>
+    <form action="/delete_saved_cocktail/<%= @the_cocktail.id %>" method="post">
+    <button class="btn btn-secondary">
+      Delete cocktail
+    </button>
+    </form>
+  </div>
+</div>

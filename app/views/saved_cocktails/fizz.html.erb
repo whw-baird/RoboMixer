@@ -1,10 +1,14 @@
-<body>
+<div class="container-fluid">
   <h1>
     The <%= @the_cocktail.name %>
   </h1>
 
+  <h4>
+    A cocktail in the <%= @the_cocktail.format.name %> family.
+  </h4>
+
+<!-- Button trigger modal 
 <div>
-  <!-- Button trigger modal 
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Launch demo modal
   </button>
@@ -30,23 +34,26 @@
 </div>
 -->
 
-<div>
+  <div>
     <% if @the_cocktail.image.present? %>
       <img src="<%= @the_cocktail.image %>" width="250">
     <% end %>
   </div>
 
-  <ul>
-    <li>
-      2 oz <%= @the_cocktail.liquor.name %>
-    </li>
-    <li>
-      1 oz <%= @the_cocktail.citrus.name %>
-    </li>
-    <li>
-      <%= @the_cocktail.soda.name %>
-    </li>
-  </ul>
+  <div>
+    <ul>
+      <li>
+        2 oz <%= @the_cocktail.liquor.name %>
+      </li>
+      <li>
+        1 oz <%= @the_cocktail.citrus.name %>
+      </li>
+      <li>
+        <%= @the_cocktail.soda.name %>
+      </li>
+    </ul>
+  </div>
+
   <h3>
     Technique
   </h3>
@@ -65,64 +72,52 @@
         <%= @the_cocktail.notes %>
       </p>
       <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
-        <div>
-          <label for="notes_box">
-            Edit notes:
-          </label>
-          <input type="text" id="notes_box" name="query_notes" placeholder="<%= @the_cocktail.notes %>">
-        </div>
-
-        <button>
-          Save notes
-        </button>
-      </form>
+      <label for="notes_box">
+        Edit notes:
+      </label>
+      <input type="text" id="notes_box" name="query_notes" placeholder="<%= @the_cocktail.notes %>">
+      <button class="btn btn-secondary">
+        Save notes
+      </button>
     <% else %>
       <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
-        <div>
-          <label for="notes_box">
-            Add notes:
-          </label>
-          <input type="text" id="notes_box" name="query_notes" placeholder="Add notes on this cocktail">
-        </div>
-        <button>
-          Save notes
-        </button>
-      </form>
+      <label for="notes_box">
+        Add notes:
+      </label>
+      <input type="text" id="notes_box" name="query_notes" placeholder="Add notes on this cocktail">
+      <button class="btn btn-secondary">
+        Save notes
+      </button>
     <% end %>
-  </div>
+  <div>
 
   <div>
-    <form action="/image_upload/<%= @the_cocktail.id %>" method="post" enctype="multipart/form-data">
-      <div>
-        <label for="image">Upload picture:</label>
-        <input type="file" id = "image" name="image" accept="/image*">
-      </div>
+    <div>
+      <h2>
+        Change cocktail name
+      </h2>
 
-      <button>
-        Upload
-      </button>
-    </form>
+      <form action="/modify_saved_cocktail/<%= @the_cocktail.id %>"  method="post" >
+        <div>
+          <label for="name_box">
+            New name:
+          </label>
+
+          <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
+        
+          <button class="btn btn-secondary">
+            Update saved cocktail
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-
+  <p></p>
   <div>
-    <h2>
-      Change cocktail name
-    </h2>
-
-    <form action="/modify_saved_cocktail/<%= @the_cocktail.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          New name:
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
-      </div>
-
-      <button>
-        Update saved cocktail
-      </button>
+    <form action="/delete_saved_cocktail/<%= @the_cocktail.id %>" method="post">
+    <button class="btn btn-secondary">
+      Delete cocktail
+    </button>
     </form>
   </div>
-
-
-</body>
+</div>

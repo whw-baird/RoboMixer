@@ -1,28 +1,29 @@
-<body>
+<div class="container-fluid">
   <h1>
     The <%= @the_cocktail.name %>
   </h1>
 
-  <div>
-    <a href="/saved_cocktails">
-      Your saved cocktails
-    </a>
-  </div>
+  <h4>
+    A cocktail in the <%= @the_cocktail.format.name %> family.
+  </h4>
 
-<!--  <div>
+  <div>
     <% if @the_cocktail.image.present? %>
       <img src="<%= @the_cocktail.image %>" width="250">
     <% end %>
   </div>
--->
-  <ul>
-    <li>
-      2.5 oz <%= @the_cocktail.liquor.name %>
-    </li>
-    <li>
-      1/4 oz <%= @the_cocktail.modifier.name %>
-    </li>
-  </ul>
+
+  <div>
+    <ul>
+      <li>
+        2.5 oz <%= @the_cocktail.liquor.name %>
+      </li>
+      <li>
+        1/4 oz <%= @the_cocktail.modifier.name %>
+      </li>
+    </ul>
+  </div>
+
   <h3>
     Technique
   </h3>
@@ -45,7 +46,7 @@
         Edit notes:
       </label>
       <input type="text" id="notes_box" name="query_notes" placeholder="<%= @the_cocktail.notes %>">
-      <button>
+      <button class="btn btn-secondary">
         Save notes
       </button>
     <% else %>
@@ -54,7 +55,7 @@
         Add notes:
       </label>
       <input type="text" id="notes_box" name="query_notes" placeholder="Add notes on this cocktail">
-      <button>
+      <button class="btn btn-secondary">
         Save notes
       </button>
     <% end %>
@@ -73,12 +74,20 @@
           </label>
 
           <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
+        
+          <button class="btn btn-secondary">
+            Update saved cocktail
+          </button>
         </div>
-
-        <button>
-          Update saved cocktail
-        </button>
       </form>
     </div>
   </div>
-</body>
+  <p></p>
+  <div>
+    <form action="/delete_saved_cocktail/<%= @the_cocktail.id %>" method="post">
+    <button class="btn btn-secondary">
+      Delete cocktail
+    </button>
+    </form>
+  </div>
+</div>
