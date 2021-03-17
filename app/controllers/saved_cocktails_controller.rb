@@ -40,7 +40,10 @@ class SavedCocktailsController < ApplicationController
     the_saved_cocktail.citrus_id = params.fetch("query_citrus_id")
     the_saved_cocktail.soda_id = params.fetch("query_soda_id")
     the_saved_cocktail.modifier_id = params.fetch("query_modifier_id")
-    the_saved_cocktail.image = params.fetch("query_image")
+    saved_image = params.fetch("query_image")
+    File.open(saved_image) do |f|
+      the_saved_cocktail.image = f
+    end
 
     if session[:user_id].present?
       if the_saved_cocktail.valid?

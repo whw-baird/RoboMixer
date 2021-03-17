@@ -1,5 +1,4 @@
 User.create!([
-  {email: "wbaird@chicagobooth.edu", password_digest: "$2a$12$8bhiNZ8Nn31.z4omgsSxtuS.ZfLZoN5666y5OZBhybJGbGNfhf2Ji"},
   {email: "whwbaird@gmail.com", password_digest: "$2a$12$Vb6WOLtqkPRMfJCxDfJ.xeVCfdj.AoklbIWsnYWCBtZ.O2TQAzcdK"}
 ])
 Citrus.create!([
