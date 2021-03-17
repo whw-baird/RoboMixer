@@ -1,7 +1,7 @@
-<body>
+<div class="container-fluid">
   <div>
     <h1>
-      Your RoboMix cocktail:
+      Your <b id="brand">RoboMix</b> cocktail:
     </h1>
   </div>
   <div>
@@ -30,7 +30,7 @@
       In a cocktail shaker, add <%= @robo_liquor.name.downcase %>, <%= @robo_citrus.name.downcase %>, and <%= @robo_modifier.name %> over ice. Close and shake for 20 seconds, then strain into a coupe glass. Garnish with a citrus twist of your choice.
     </p>
   </div>
-  <div>
+  <div class="mb-1">
     <form action="/insert_saved_cocktail" method="post">
       <input type="hidden" id="user_id_box" value="<%= session[:user_id] %>" name="query_user_id">
       <input type="hidden" id="format_id_box" value="<%= @robo_format.id %>" name="query_format_id">
@@ -47,10 +47,9 @@
       </button>
     </form>
   </div>
-  <p>
+
   <div>
     <form action="/generator/output">
     <button class="btn btn-secondary">ROBOMIX</button>
   </div>
-  </p>
-</body>
+</div>
