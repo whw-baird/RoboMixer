@@ -107,36 +107,72 @@
     <% end %>
   <div>
 
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#renameModal">
-    Change cocktail name
-  </button>
+  <div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#renameModal">
+      Change cocktail name
+    </button>
 
-  <!-- Modal -->
-  <div class="modal fade" id="renameModal" tabindex="-1" role="dialog" aria-labelledby="Rename Cocktail">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="renameModalLabel">Change cocktail name</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="/modify_saved_cocktail/<%= @the_cocktail.id %>"  method="post">
-          <div>
-            <label for="name_box">
-              New name:
-            </label>
-            <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
+    <!-- Modal -->
+    <div class="modal fade" id="renameModal" tabindex="-1" role="dialog" aria-labelledby="Rename Cocktail">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="renameModalLabel">Change cocktail name</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/modify_saved_cocktail/<%= @the_cocktail.id %>"  method="post">
+            <div>
+              <label for="name_box">
+                New name:
+              </label>
+              <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-secondary">Update</button>
+            </form>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-secondary">Update</button>
-          </form>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#imageModal">
+      <% if @the_cocktail.image.present? %>
+        Change image
+      <% else %>
+        Upload image
+      <% end %>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="Change Image">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="imageModalLabel">Upload an image</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/image_upload/<%= @the_cocktail.id %>"  method="post" class="form-horizontal" enctype="multipart/form-data">
+            <input type="file" id="new_image" name="image" class="form-control">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-secondary">Upload</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>
