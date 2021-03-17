@@ -1,14 +1,16 @@
-<div class="container-fluid">
-  <div>
+<div class="container-fluid mb-1">
+  <div class="mb-3">
     <h1>
       Your <b id="brand">RoboMix</b> cocktail:
     </h1>
   </div>
   <div>
-    <p>
-      A <%= @robo_format.name %>-format cocktail
-    </p>
-    With:
+    <h4>
+      A cocktail in the Old Fashioned family.
+    </h4>
+  </div>
+  <div>
+    <strong>Ingredients:</strong>
     <ul>
       <li>
         1.5 oz <%= @robo_liquor.name %>
@@ -22,7 +24,8 @@
         2 dashes <%= @robo_bitters.name %>
       </li>
     </ul>
-
+  </div>
+  <div>
     <h3>
       Suggested technique
     </h3>
