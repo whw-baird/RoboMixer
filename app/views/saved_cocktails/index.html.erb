@@ -4,59 +4,64 @@
     </h1>
 
   <hr>
-
-  <div class="d-flex flex-wrap justify-content-around">
-    <% @list_of_saved_cocktails.each do |a_cocktail| %>
-      <div class="card mb-3" style="width: 18rem">
-        <h3 class="card-header"><%= a_cocktail.name %></h3>
-        <% if a_cocktail.image.present? %>
-          <img class="card-img-top" src="<%= a_cocktail.image %>">
-        <% end %>
-        <div class="card-body">
-          <p class="card-text">
-            A cocktail in the <%= a_cocktail.format.name %> family.
-          </p>
-          <p class="card-text">
-            Ingredients: 
-            <ul>
-              <li>
-                <%= a_cocktail.liquor.name %>
-              </li>
-
-              <% if a_cocktail.sweetener.present? %>
+  <% if @list_of_saved_cocktails.count == 0 %>
+    <h4>
+      Nothing here! Take the <a href="/generator" id="brand">Robomixer</a> for a spin. You can save the generated cocktails and find them here.
+    </h4>
+  <% else %>
+    <div class="d-flex flex-wrap justify-content-around">
+      <% @list_of_saved_cocktails.each do |a_cocktail| %>
+        <div class="card mb-3" style="width: 18rem">
+          <h3 class="card-header"><%= a_cocktail.name %></h3>
+          <% if a_cocktail.image.present? %>
+            <img class="card-img-top" src="<%= a_cocktail.image %>">
+          <% end %>
+          <div class="card-body">
+            <p class="card-text">
+              A cocktail in the <%= a_cocktail.format.name %> family.
+            </p>
+            <p class="card-text">
+              Ingredients: 
+              <ul>
                 <li>
-                  <%= a_cocktail.sweetener.name %>
+                  <%= a_cocktail.liquor.name %>
                 </li>
-              <% end %>
 
-              <% if a_cocktail.bitters.present? %>
-                <li>
-                  <%= a_cocktail.bitters.name %>
-                </li>
-              <% end %>
+                <% if a_cocktail.sweetener.present? %>
+                  <li>
+                    <%= a_cocktail.sweetener.name %>
+                  </li>
+                <% end %>
 
-              <% if a_cocktail.citrus.present? %>
-                <li>
-                  <%= a_cocktail.citrus.name %>
-                </li>
-              <% end %>
+                <% if a_cocktail.bitters.present? %>
+                  <li>
+                    <%= a_cocktail.bitters.name %>
+                  </li>
+                <% end %>
 
-              <% if a_cocktail.soda.present? %>
-                <li>
-                  <%= a_cocktail.soda.name %>
-                </li>
-              <% end %>
+                <% if a_cocktail.citrus.present? %>
+                  <li>
+                    <%= a_cocktail.citrus.name %>
+                  </li>
+                <% end %>
 
-              <% if a_cocktail.modifier.present? %>
-                <li>
-                  <%= a_cocktail.modifier.name %>
-                </li>
-              <% end %>
-            </ul>
-          </p>
-          <a href="/saved_cocktails/<%= a_cocktail.id %>" class="btn btn-secondary">Show details</a>
+                <% if a_cocktail.soda.present? %>
+                  <li>
+                    <%= a_cocktail.soda.name %>
+                  </li>
+                <% end %>
+
+                <% if a_cocktail.modifier.present? %>
+                  <li>
+                    <%= a_cocktail.modifier.name %>
+                  </li>
+                <% end %>
+              </ul>
+            </p>
+            <a href="/saved_cocktails/<%= a_cocktail.id %>" class="btn btn-secondary">Show details</a>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

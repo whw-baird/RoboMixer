@@ -31,7 +31,7 @@
 
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="/cocktails">
             Traditional Cocktails
           </a>
@@ -69,13 +69,13 @@
   </nav>
 
   <% if notice.present? %>
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success d-inline-flex m-1 p-2" role="alert">
       <%= notice %>
     </div>
   <% end %>
 
   <% if alert.present? %>
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger d-inline-flex m-1 p-2" role="alert">
       <%= alert %>
     </div>
   <% end %>
