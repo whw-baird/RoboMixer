@@ -7,33 +7,6 @@
     A cocktail in the <%= @the_cocktail.format.name %> family.
   </h4>
 
-<!-- Button trigger modal 
-<div>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-
-  <!-- Modal 
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
--->
-
   <div>
     <% if @the_cocktail.image.present? %>
       <img src="<%= @the_cocktail.image %>" width="250">
@@ -71,53 +44,131 @@
       <p>
         <%= @the_cocktail.notes %>
       </p>
-      <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
-      <label for="notes_box">
-        Edit notes:
-      </label>
-      <input type="text" id="notes_box" name="query_notes" placeholder="<%= @the_cocktail.notes %>">
-      <button class="btn btn-secondary">
-        Save notes
+      
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#notesModal">
+        Edit notes
       </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="notesModal" tabindex="-1" role="dialog" aria-labelledby="notesModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="notesModalLabel">Edit notes</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
+              <label for="notes_box">
+                Add notes:
+              </label>
+              <textarea class="form-control" id="notes_box" rows="3" name="query_notes"><%= @the_cocktail.notes %></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-secondary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <% else %>
-      <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
-      <label for="notes_box">
-        Add notes:
-      </label>
-      <input type="text" id="notes_box" name="query_notes" placeholder="Add notes on this cocktail">
-      <button class="btn btn-secondary">
-        Save notes
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#notesModal">
+        Add notes
       </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="notesModal" tabindex="-1" role="dialog" aria-labelledby="notesModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="notesModalLabel">Add notes</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="/add_notes/<%= @the_cocktail.id %>" method="post">
+              <label for="notes_box">
+                Add notes:
+              </label>
+              <textarea class="form-control" id="notes_box" rows="3" name="query_notes" placeholder="Add your thoughts here!"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-secondary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
   <div>
 
-  <div>
-    <div>
-      <h2>
-        Change cocktail name
-      </h2>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#renameModal">
+    Change cocktail name
+  </button>
 
-      <form action="/modify_saved_cocktail/<%= @the_cocktail.id %>"  method="post" >
-        <div>
-          <label for="name_box">
-            New name:
-          </label>
-
-          <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
-        
-          <button class="btn btn-secondary">
-            Update saved cocktail
+  <!-- Modal -->
+  <div class="modal fade" id="renameModal" tabindex="-1" role="dialog" aria-labelledby="Rename Cocktail">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="renameModalLabel">Change cocktail name</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
           </button>
         </div>
-      </form>
+        <div class="modal-body">
+          <form action="/modify_saved_cocktail/<%= @the_cocktail.id %>"  method="post">
+          <div>
+            <label for="name_box">
+              New name:
+            </label>
+            <input type="text" id="name_box" name="query_name" value="<%= @the_cocktail.name %>">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-secondary">Update</button>
+          </form>
+        </div>
+      </div>
+      </div>
     </div>
   </div>
-  <p></p>
+
   <div>
-    <form action="/delete_saved_cocktail/<%= @the_cocktail.id %>" method="post">
-    <button class="btn btn-secondary">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-danger mb-1" data-toggle="modal" data-target="#deleteModal">
       Delete cocktail
     </button>
-    </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="Delete Cocktail">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Delete cocktail</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>
+              Warning: This cannot be undone.
+            </div>
+          </div>
+          <div class="modal-footer">
+            <form action="/delete_saved_cocktail/<%= @the_cocktail.id %>" method="post">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No, take me back</button>
+            <button type="submit" class="btn btn-danger">Yes, I'm sure</button>
+            </form>
+          </div>
+        </div>
+    </div>
   </div>
 </div>

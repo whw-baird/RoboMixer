@@ -1,4 +1,4 @@
-<div>
+<div class="container-fluid">
   <h1>
     Your Saved Cocktails
   </h1>
@@ -8,7 +8,7 @@
 
 <div class="d-flex flex-wrap justify-content-around">
     <% @list_of_saved_cocktails.each do |a_cocktail| %>
-      <div class="card" style="width: 18rem" padding-bottom="20px">
+      <div class="card mb-3" style="width: 18rem">
       <h3 class="card-header"><%= a_cocktail.name %></h3>
       <% if a_cocktail.image.present? %>
         <img class="card-img-top" src="<%= a_cocktail.image %>">
