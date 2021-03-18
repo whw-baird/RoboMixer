@@ -4,11 +4,11 @@
   </h1>
   <div class="d-flex justify-content-start mb-2">
     <% if @the_cocktail.image.present? %>  
-      <div class="d-inline-flex">
+      <div class="d-inline-flex pr-3">
         <img src="<%= @the_cocktail.image %>" width="250">
       </div>
     <% end %>
-    <div class="container">
+    <div class="container-fluid pl-0">
       <div>
         <h4>
           A cocktail in the Martini family.
@@ -80,6 +80,7 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-secondary">Save changes</button>
+                </form>
               </div>
             </div>
           </div>
@@ -110,6 +111,7 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-secondary">Save changes</button>
+                </form>
               </div>
             </div>
           </div>
@@ -146,7 +148,6 @@
               <button type="submit" class="btn btn-secondary">Update</button>
               </form>
             </div>
-          </div>
           </div>
         </div>
       </div>
